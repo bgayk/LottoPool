@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "PowerBall",
+    "user_min_purchase:": 2.00,
+    "user_max_purchase": 20.00,
+    "multiplier_name": "PowerBall",
+    "draws_mon:": "Y",
+    "draws_tue:": "N",
+    "draws_wed:": "Y",
+    "draws_thu:": "N",
+    "draws_fri:": "Y",
+    "draws_sat:": "N",
+    "draws_sun:": "N"
+  }
+]

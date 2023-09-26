@@ -1,0 +1,24 @@
+[
+  {
+    "user_id": 1,
+    "lottery_drawings_id": 1,
+    "id": 1,
+    "purchase_date": "2023-09-26T00:00:00.000Z",
+    "purchase_amt": 10.00
+  },
+  {
+    "user_id": 2,
+    "lottery_drawings_id": 1,
+    "id": 1,
+    "purchase_date": "2023-09-26T00:00:00.000Z",
+    "purchase_amt": 10.00
+  },
+  {
+    "user_id": 3,
+    "lottery_drawings_id": 1,
+    "id": 1,
+    "purchase_date": "2023-09-26T00:00:00.000Z",
+    "purchase_amt": 10.00
+
+  }
+]

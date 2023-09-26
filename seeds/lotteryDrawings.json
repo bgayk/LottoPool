@@ -1,0 +1,14 @@
+[
+  {
+    "lottery_id": 1,
+    "id": 1,
+    "drawing_date": "2023-09-27",
+    "estimated_winning_amt": 1000000,
+    "winning_ball01": 1,
+    "winning_ball02": 2,
+    "winning_ball03": 3,
+    "winning_ball04": 4,
+    "winning_ball05": 5,
+    "winning_multiplier": 6
+  }
+]
