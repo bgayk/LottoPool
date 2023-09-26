@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 class LotteryTickets extends Model {}
 
-Project.init(
+LotteryTickets.init(
   {
     lottery_id: {
       type: DataTypes.INTEGER,

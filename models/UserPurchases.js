@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 class UserPurchases extends Model {}
 
-Project.init(
+UserPurchases.init(
   {
     user_id: {
       type: DataTypes.INTEGER,
@@ -33,9 +33,9 @@ Project.init(
       type: DataTypes.DATE,
     },
     purchase_amt: {
-      type: DataTypes.Decimal,
+      type: DataTypes.FLOAT,
       allowNull: false,
-      defaultValue: DataTypes.Decimal(0.00),
+      defaultValue: 0,
     }
   },
   {

@@ -1,13 +1,13 @@
 const sequelize = require('../config/connection');
-const { User, Project } = require('../models');
+const { User, Project, UserPurchases, Lotteries, LotteryDrawings, LotteryTickets } = require('../models');
 
 const userData = require('./userData.json');
 const projectData = require('./projectData.json');
 
-const UserPurchases = require('./UserPurchases.json');
-const Lotteries = require('./Lotteries.json');
-const LotteryDrawings = require('./LotteryDrawings.json');
-const LotteryTickets = require('./LotteryTickets.json');
+const userPurchasesData = require('./UserPurchasesData.json');
+const lotteriesData = require('./lotteriesData.json');
+const lotteryDrawingsData = require('./LotteryDrawingsData.json');
+const lotteryTicketsData = require('./LotteryTicketsData.json');
 
 
 
@@ -26,30 +26,31 @@ const seedDatabase = async () => {
     });    
   }
 
-  for (const userpurchase of UserPurchases) {
+  for (const lottery of lotteriesData) {
+    await Lotteries.create({
+      ...lottery,
+    });
+  }
+
+  for (const lotterydrawing of lotteryDrawingsData) {
+    await LotteryDrawings.create({
+      ...lotterydrawing,
+    });
+  }
+
+  for (const lotteryticket of lotteryTicketsData) {
+    await LotteryTickets.create({
+      ...lotteryticket,
+    });
+  }
+
+  for (const userpurchase of userPurchasesData) {
     await UserPurchases.create({
       ...userpurchase,
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
 
-  for (const lottery of Lotteries) {
-    await Lotteries.create({
-      ...lottery,
-    });
-  }
-
-  for (const lotterydrawing of LotteryDrawings) {
-    await LotteryDrawings.create({
-      ...lotterydrawing,
-    });
-  }
-
-  for (const lotteryticket of LotteryTickets) {
-    await LotteryTickets.create({
-      ...lotteryticket,
-    });
-  }
   
   process.exit(0);
 };

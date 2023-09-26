@@ -1,0 +1,12 @@
+[
+  {
+    "lottery_drawings_id": 1,
+    "id": 1,
+    "ball01": 1,
+    "ball02": 3,
+    "ball03": 5,
+    "ball04": 7,
+    "ball05": 9,
+    "multiplier": 11  
+  }
+]

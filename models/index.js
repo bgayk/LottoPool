@@ -1,6 +1,7 @@
 const User = require('./User');
 const Project = require('./Project');
 const UserPurchases = require('./UserPurchases');
+const Lotteries = require('./Lotteries');
 const LotteryDrawings = require('./LotteryDrawings');
 const LotteryTickets = require('./LotteryTickets');
 

@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 class LotteryDrawings extends Model {}
 
-Project.init(
+LotteryDrawings.init(
   {
     lottery_id: {
       type: DataTypes.INTEGER,
@@ -21,7 +21,7 @@ Project.init(
       autoIncrement: true,
     },
     drawing_date: {
-      type: DataTypes.DATETIME,
+      type: DataTypes.DATE,
       allowNull: false,
       validator: { // validate date is in the future (after today)
         isAfter: new Date()     
