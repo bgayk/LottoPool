@@ -1,35 +1,11 @@
 const router = require('express').Router();
-const { Lotteries, User  } = require('../models');
+const { Project, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all lotteries and JOIN with user data
-    const lotteriesData = await Lotteries.findAll({
-    //  include: [
-    //    {
-    //      model: User,
-    //      attributes: ['name'],
-    //    },
-    //  ],
-    });
-
-    // Serialize data so the template can read it
-    const lotteries = lotteriesData.map((lotteries) => lotteries.get({ plain: true }));
-
-    // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      lotteries, 
-      logged_in: req.session.logged_in 
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get('/lotteries/:id', async (req, res) => {
-  try {
-    const lotteriesData = await Lotteries.findByPk(req.params.id, {
+    // Get all projects and JOIN with user data
+    const projectData = await Project.findAll({
       include: [
         {
           model: User,
@@ -38,10 +14,34 @@ router.get('/lotteries/:id', async (req, res) => {
       ],
     });
 
-    const lotteries = lotteriesData.get({ plain: true });
+    // Serialize data so the template can read it
+    const projects = projectData.map((project) => project.get({ plain: true }));
 
-    res.render('lotteries', {
-      ...lotteries,
+    // Pass serialized data and session flag into template
+    res.render('homepage', { 
+      projects, 
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/project/:id', async (req, res) => {
+  try {
+    const projectData = await Project.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const project = projectData.get({ plain: true });
+
+    res.render('project', {
+      ...project,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -55,7 +55,7 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Lotteries }],
+      include: [{ model: Project }],
     });
 
     const user = userData.get({ plain: true });

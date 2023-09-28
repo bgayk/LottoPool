@@ -1,3 +1,36 @@
+// ?: why am I getting a 'SequelizeEagerLoadingError' when going to the homepage?
+// A: You're getting this error because you're trying to access the User model from the Lotteries model, but you haven't included the User model in the query. 
+// You can fix this by updating the findAll() method in the homepage route to include the User model, like so:
+// ?: like how?
+// A: You can update the findAll() method in the homepage route to include the User model, like so:
+// const lotteriesData = await Lotteries.findAll({
+//   include: [
+//     {
+//       model: User,
+//       attributes: ['name'],
+//     },
+//   ],
+// });
+//
+// // Serialize data so the template can read it
+// const lotteries = lotteryData.map((lotteries) => lotteries.get({ plain: true }));
+//
+// // Pass serialized data and session flag into template
+// res.render('homepage', {
+//   lotteries,
+//   logged_in: req.session.logged_in
+// });
+//   }
+// });
+//
+// router.get('/login', (req, res) => {
+//   // If the user is already logged in, redirect the request to another route
+//   if (req.session.logged_in) {
+//     res.redirect('/profile');
+//     return;
+
+// ?: why do I get the pretty print page when I go to the homepage?
+// A: You're getting this error because you're trying to access the User model from the Lotteries model, but you haven't included the User model in the query.  
 const path = require('path');
 const express = require('express');
 const session = require('express-session');

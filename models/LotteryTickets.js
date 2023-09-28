@@ -5,7 +5,7 @@ class LotteryTickets extends Model {}
 
 LotteryTickets.init(
   {
-    lottery_id: {
+    lottery_drawings_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primayKey: true,

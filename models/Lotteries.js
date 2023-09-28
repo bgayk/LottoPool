@@ -17,14 +17,19 @@ Lotteries.init(
     },
     user_min_purchase: {
       type: DataTypes.FLOAT,
-      allowNull: false,
+      defaultValue: 2.00,
     },
     user_max_purchase: {
       type: DataTypes.FLOAT,
-      allowNull: false,
+      defaultValue: 20.00,
     },
-    multiplier_name: {
+    multiplier_name: { // the name of the multiplier ball (e.g. Powerball)
       type: DataTypes.STRING,
+    },
+    multiplier_allowed: { // whether or not the multiplier purchase is allowed
+      type: DataTypes.BOOLEAN, 
+      allowNull: false,
+      defaultValue: false,
     },
     draws_mon: {
       type: DataTypes.BOOLEAN,
@@ -67,6 +72,9 @@ Lotteries.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
+   // defaultScope: {
+   //   order: [['id', 'DESC']],
+   // },
     modelName: 'lotteries',
   }
 );

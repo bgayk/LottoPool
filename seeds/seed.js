@@ -1,5 +1,5 @@
 const sequelize = require('../config/connection');
-const { User, Project, UserPurchases, Lotteries, LotteryDrawings, LotteryTickets } = require('../models');
+const { User, Project, Lotteries, UserPurchases, LotteryDrawings, LotteryTickets } = require('../models');
 
 const userData = require('./userData.json');
 const projectData = require('./projectData.json');
@@ -26,12 +26,13 @@ const seedDatabase = async () => {
     });    
   }
 
-  for (const lottery of lotteriesData) {
+
+  for (const lotteries of lotteriesData) {
     await Lotteries.create({
-      ...lottery,
+      ...lotteries,
     });
   }
-
+  
   for (const lotterydrawing of lotteryDrawingsData) {
     await LotteryDrawings.create({
       ...lotterydrawing,

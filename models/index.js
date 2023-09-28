@@ -45,4 +45,4 @@ LotteryTickets.belongsTo(LotteryDrawings, {
 
 
 
-module.exports = { User, Project, UserPurchases, LotteryDrawings, LotteryTickets };
+module.exports = { User, Project, UserPurchases, Lotteries, LotteryDrawings, LotteryTickets };

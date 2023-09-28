@@ -1,6 +1,6 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
-
+  
   const id = document.querySelector('#lotteries-id').value.trim();
   const name = document.querySelector('#lotteries-name').value.trim();
   const user_min_purchase = document.querySelector('#lotteries-userMinPurchase').value.trim();
@@ -18,14 +18,14 @@ const newFormHandler = async (event) => {
   if (name && user_min_purchase && user_max_purchase && multiplier_name && multiplier_allowed && draws_mon && draws_tue && draws_wed && draws_thu && draws_fri && draws_sat && draws_sun) {
     const response = await fetch(`/api/lotteries`, {
       method: 'POST',
-      body: JSON.stringify({ name, user_min_purchase, user_max_purchase, multiplier_name, multiplier_allowed, draws_mon, draws_tue, draws_wed, draws_thu, draws_fri, draws_sat, draws_sun  }),
+      body: JSON.stringify({ name, user_min_purchase, user_max_purchase, multiplier_name, multiplier_allowed, draws_mon, draws_tue, draws_wed, draws_thu, draws_fri, draws_sat, draws_sun }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/lotteries');
     } else {
       alert('Failed to create lotteries');
     }
@@ -36,12 +36,12 @@ const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/lotteriess/${id}`, {
+    const response = await fetch(`/api/lotteries/${id}`, {
       method: 'DELETE',
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/lotteries');
     } else {
       alert('Failed to delete lotteries');
     }
